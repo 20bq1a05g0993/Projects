@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            align-items: center;
+            text-align: center;
+        }
+        table,form{
+            align-items:center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="speechpage" method="get">
+        <input type="submit" value="speech"/>
+        <button>text</button>
+    </form>
+    <form action="translate">
+        <script>
+            function change(){
+                var s=document.getElementById("inptext");
+                s.value=s.value.replace(" ","_");
+            }
+        </script>
+    <table>
+        <tr>
+            <td>
+                <label for="inptext">
+                    Enter the text
+                </label>
+            </td>
+            <td>
+                <textarea rows="50" cols="50" id="inptext" name="inptext" onchange="change"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Select the language to which it need to be converted 
+                </label>
+            </td>
+            <td>
+                <select id="lang" name="lang">
+                    <option selected>english</option>
+                    {% for i in lang %}
+                    <option>
+                        {{i}}
+                    </option>
+                    {% endfor %}
+                </select>
+                <script>
+                    var c=document.getElementById('lang')
+                    console.log(c.nodeValue);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                
+                    <input type="submit" value="translate"/>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
